@@ -1,0 +1,43 @@
+page-login {
+
+            .content {
+                        display: flex;
+                        text-align: center;
+                        color: #fff;
+                        //background-image: url('../../assets/login.jpg');
+                        background-image: url('../assets/login.jpg');
+                        background-size: cover;
+
+                        a {
+                                    color: lawngreen;
+                        }
+
+                        p.action {
+                                    position: absolute;
+                                    bottom: 2%;
+                                    padding: 20%;
+                        }
+
+                        ion-card.card {
+                                    position: absolute;
+                                    top: 20%;
+                                    background-color: rgba(0, 0, 0, .3);
+                                    box-shadow: 0;
+
+                                    ion-item.transparent {
+                                                background-color: transparent;
+
+                                                ion-input {
+                                                            color: #fff;
+                                                }
+
+                                                button {
+                                                            padding: 20px;
+                                                }
+                                    }
+                        }
+            }
+
+            
+
+}

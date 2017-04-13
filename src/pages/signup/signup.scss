@@ -1,0 +1,38 @@
+page-signup {
+
+            .content {
+                        display: flex;
+                        text-align: center;
+                        color: #fff;
+                        //background-image: url('../../assets/signup.jpg');
+                        background-image: url('../assets/signup.jpg');
+                        background-size: cover;
+
+                        a {
+                                    color: lawngreen;
+                        }
+
+                        p.action {
+                                    position: absolute;
+                                    bottom: 30px;
+                                    padding: 20%;
+                        }
+
+                        ion-card.card {
+                                    position: absolute;
+                                    top: 20%;
+                                    background-color: rgba(255, 255, 255, .3);
+                                    box-shadow: 0;
+
+                                    ion-item.transparent {
+                                                background-color: transparent;
+
+                                                button {
+                                                            padding: 20px;
+                                                }
+                                    }
+                        }
+            }
+
+
+}
