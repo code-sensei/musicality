@@ -13,6 +13,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'portal.html',
 })
 export class Portal {
+            playing: boolean = true
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

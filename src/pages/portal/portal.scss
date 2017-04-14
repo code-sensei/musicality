@@ -1,3 +1,18 @@
 page-portal {
 
+            ion-footer {
+            height: 75px;
+            background-color: map-get($colors, primary);
+ 
+            ion-grid, ion-row, ion-col {
+                height: 100%;
+            }
+ 
+            ion-col {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
 }

@@ -6,12 +6,40 @@
 -->
 <ion-header>
 
-  <ion-navbar color="danger">
+  <ion-navbar color="primary" class="nav">
+              <ion-avatar item-left>
+                          <img src="">
+              </ion-avatar>
     <ion-title>Portal</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content >
+
+            <ion-footer>
+            
+                        <ion-grid>
+            
+                                    <ion-row>
+            
+                                                <ion-col width="33">
+                                                            <button (click)="prevTrack()" color="light" clear ion-button icon-only><ion-icon name="skip-backward"></ion-icon></button>
+                                                </ion-col>
+            
+                                                <ion-col width="33">
+                                                            <button *ngIf="playing" (click)="playTrack(currentTrack)" color="light" clear ion-button icon-only><ion-icon name="play"></ion-icon></button>
+                                                            <button *ngIf="" (click)="pauseTrack(currentTrack)" color="light" clear ion-button icon-only><ion-icon name="pause"></ion-icon></button>
+                                                </ion-col>
+            
+                                                <ion-col width="33">
+                                                            <button (click)="nextTrack()" color="light" clear ion-button icon-only><ion-icon name="skip-forward"></ion-icon></button>
+                                                </ion-col>
+            
+                                      </ion-row>
+            
+                        </ion-grid>
+            
+            </ion-footer>
 
 </ion-content>
