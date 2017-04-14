@@ -3,9 +3,10 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { NativeStorage } from "@ionic-native/native-storage";
 
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
-import { IonicStorageModule, StorageConfig } from "@ionic/storage";
+import { IonicStorageModule } from "@ionic/storage";
 
 import { MyApp } from './app.component';
 
@@ -44,6 +45,7 @@ const cloudSettings: CloudSettings = {
     StatusBar,
     SplashScreen,
     AuthService,
+    NativeStorage,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

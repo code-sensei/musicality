@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
+import { NativeStorage } from "@ionic-native/native-storage";
 
 import { AuthService } from "../../providers/auth";
 
@@ -22,7 +23,7 @@ export class Login {
             password: string
             username: string
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public auth: AuthService, public store: Storage, public load: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public auth: AuthService, public store: Storage,  public storage: NativeStorage, public load: LoadingController) {
               //Get user stored username at signup
               this.store.ready().then(() => {
                           this.store.get('username').then((res) => {
@@ -30,6 +31,10 @@ export class Login {
                                       console.log('Username: ' + this.username);
                           })
               })
+            // this.storage.getItem('username').then((res) => {
+            //             this.username = res;
+            //             console.log('Username: ' + this.username);
+            // })
   }
 
   login() {

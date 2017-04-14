@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+
 /**
  * Generated class for the Portal page.
  *
@@ -11,6 +12,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @Component({
   selector: 'page-portal',
   templateUrl: 'portal.html',
+  providers: []
 })
 export class Portal {
             playing: boolean = true

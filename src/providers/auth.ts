@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ToastController, AlertController } from "ionic-angular";
 import { Auth, User, UserDetails, IDetailedError } from "@ionic/cloud-angular";
 import { Storage } from "@ionic/storage";
+import { NativeStorage } from "@ionic-native/native-storage";
 import 'rxjs/add/operator/map';
 
 /*
@@ -13,7 +14,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AuthService {
 
-  constructor(public auth: Auth, public user: User, public toast: ToastController, public alert: AlertController, public store: Storage) {
+  constructor(public auth: Auth, public user: User, public toast: ToastController, public alert: AlertController, public store: Storage, public storage: NativeStorage) {
     console.log('Hello Auth Provider');
   }
 
@@ -22,6 +23,15 @@ export class AuthService {
             let details: UserDetails = {'email': email, 'password': password};
 
             this.auth.signup(details).then(() => {
+                        // this.storage.setItem('username', username).then(() => {
+                        //             console.log('Username stored!')
+                        // })
+                        // this.storage.setItem('email', email).then(() => {
+                        //             console.log('email stored!')
+                        // })
+                        // this.storage.setItem('password', password).then(() => {
+                        //             console.log('password stored!')
+                        // })
                         this.store.ready().then(() => {
                                     this.store.set('email', email)
                                     this.store.set('password', password)
@@ -61,7 +71,7 @@ export class AuthService {
              this.auth.login('basic', details).then( () => {
                         // `this.user` is now logged in
                         let toast = this.toast.create({
-                                    message: 'Welcome back' + username,
+                                    message: 'Welcome back ' + username,
                                     duration: 3000
                         });
                         toast.present();
