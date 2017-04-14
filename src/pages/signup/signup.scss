@@ -8,6 +8,11 @@ page-signup {
                         background-image: url('../assets/signup.jpg');
                         background-size: cover;
 
+                        button.signup {
+                                    position: inherit;
+                                    bottom: 30px;
+                        }
+
                         a {
                                     color: lawngreen;
                         }
@@ -26,10 +31,6 @@ page-signup {
 
                                     ion-item.transparent {
                                                 background-color: transparent;
-
-                                                button {
-                                                            padding: 20px;
-                                                }
                                     }
                         }
             }

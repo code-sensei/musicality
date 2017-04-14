@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 
 import { AuthService } from "../../providers/auth";
 
@@ -20,11 +20,21 @@ export class Signup {
             password: string
             username: string
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public auth: AuthService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public auth: AuthService,
+                        public load: LoadingController) {
   }
 
   signup() {
-            this.auth.signup(this.email, this.password, this.username)
+
+              let loading = this.load.create({
+                          content: 'Signing you up for the service'
+              });
+              loading.present();
+             this.auth.signup(this.email, this.password, this.username)
+             this.navCtrl.push('Portal')
+             setTimeout(() =>{
+                         loading.dismiss();
+             }, 5000)
   }
 
   toLoginPage() {

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
 
 import { AuthService } from "../../providers/auth";
@@ -22,17 +22,26 @@ export class Login {
             password: string
             username: string
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public auth: AuthService, public store: Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public auth: AuthService, public store: Storage, public load: LoadingController) {
               //Get user stored username at signup
               this.store.ready().then(() => {
                           this.store.get('username').then((res) => {
                                       this.username = res;
+                                      console.log('Username: ' + this.username);
                           })
               })
   }
 
   login() {
+              let loading = this.load.create({
+                          content: 'Logging in...'
+              });
+              loading.present();
             this.auth.login(this.email, this.password, this.username);
+            this.navCtrl.push('Portal');
+            setTimeout(() => {
+                        loading.dismiss();
+            }, 5000)
   }
 
   toSignupPage() {

@@ -20,12 +20,11 @@
                                                             <ion-label color="danger" floating>Password</ion-label>
                                                             <ion-input type="password" placeholder="" [(ngModel)]="password"></ion-input>
                                                 </ion-item>
-                                                <ion-item class="transparent">
-                                                            <button ion-button color="primary" block outline (click)="login()">login</button>
-                                                </ion-item>
                                     </ion-list>
                         </ion-card-content>
             </ion-card>
 
             <p class="action" color="light">Dont have an account? <a color="secondary" (click)="toSignupPage()">Create one.</a></p>
+
+            <button class="login" ion-button color="primary" block outline (click)="login()">login</button>
 </ion-content>

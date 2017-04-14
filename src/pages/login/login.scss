@@ -8,6 +8,11 @@ page-login {
                         background-image: url('../assets/login.jpg');
                         background-size: cover;
 
+                        button.login {
+                                    position: inherit;
+                                    bottom: 30px;
+                        }
+
                         a {
                                     color: lawngreen;
                         }
