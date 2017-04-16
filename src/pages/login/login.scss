@@ -9,8 +9,11 @@ page-login {
                         background-size: cover;
 
                         button.login {
-                                    position: inherit;
+                                    position: absolute;
+                                    z-index: -999;
                                     bottom: 30px;
+                                    width: 70%;
+                                    margin-left: 55px;
                         }
 
                         a {

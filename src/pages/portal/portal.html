@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar color="primary" class="nav">
+  <ion-navbar color="primary" class="nav" hideBackButton="true">
               <ion-avatar item-left>
                           <img src="">
               </ion-avatar>
@@ -16,6 +16,15 @@
 </ion-header>
 
 <ion-content >
+
+            <ion-slides pager>
+
+                        <ion-slide *ngIf="is_empty">
+                                    No files available. Please import some files
+                                    <button ion-button large (click)="uploadLocal()" style="margin-top: 2em">Import</button>
+                        </ion-slide>
+                        
+            </ion-slides>
 
             <ion-footer>
             

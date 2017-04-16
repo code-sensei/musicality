@@ -4,7 +4,9 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { NativeStorage } from "@ionic-native/native-storage";
-
+import { FileChooser } from "@ionic-native/file-chooser";
+import { FilePath } from "@ionic-native/file-path";
+import { MediaPlugin } from "@ionic-native/media";
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { IonicStorageModule } from "@ionic/storage";
 
@@ -46,6 +48,9 @@ const cloudSettings: CloudSettings = {
     SplashScreen,
     AuthService,
     NativeStorage,
+    FileChooser,
+    FilePath,
+    MediaPlugin,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
