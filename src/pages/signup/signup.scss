@@ -5,16 +5,19 @@ page-signup {
                         text-align: center;
                         color: #fff;
                         //background-image: url('../../assets/signup.jpg');
-                        background-image: url('../assets/signup.jpg');
+                        background-image: url('../assets/3.jpg');
                         background-size: cover;
 
                         button.signup {
-                                    position: inherit;
+                                    position: absolute;
+                                    z-index: -999;
                                     bottom: 30px;
+                                    width: 70%;
+                                    margin-left: 55px;
                         }
 
                         a {
-                                    color: lawngreen;
+                                    color: #000;
                         }
 
                         p.action {

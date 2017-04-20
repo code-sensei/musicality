@@ -1,7 +1,7 @@
 {
-  "name": "ionic-hello-world",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "name": "musicality",
+  "author": "Tsowa Babangida",
+  "homepage": "https://github.com/code-sensei",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -53,5 +53,5 @@
       "locator": "ios"
     }
   ],
-  "description": "musicality: An Ionic project"
+  "description": "musicality: A music application unlike any other. It allows you to download, stream and listen to music. With Musicality, you are really spoilt for choice."
 }

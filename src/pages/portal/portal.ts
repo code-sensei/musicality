@@ -38,7 +38,7 @@ export class Portal {
                                     })
                         }, (err) => {
                                     //AlertController alert
-                                    alert(err)
+                                    alert('No FP plugin available')
                         })
                         
                         // resolveNativePath(uri, (result) => {
@@ -53,7 +53,7 @@ export class Portal {
                                                         
              }).catch((e) => {
                          //Alert error with AlertController
-                        alert(e)
+                        alert('No FC plugin available')
             })
 
             //Push chosen file to $local_tracks array
