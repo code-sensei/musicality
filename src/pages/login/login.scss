@@ -12,8 +12,8 @@ page-login {
                                     position: absolute;
                                     z-index: -999;
                                     bottom: 30px;
-                                    width: 70%;
                                     margin-left: 55px;
+                                    width: 70%;
                         }
 
                         a {
@@ -21,9 +21,8 @@ page-login {
                         }
 
                         p.action {
-                                    position: absolute;
-                                    bottom: 2%;
-                                    padding: 20%;
+                                    color: #fff;
+                                    padding-top: 20px;
                         }
 
                         ion-card.card {

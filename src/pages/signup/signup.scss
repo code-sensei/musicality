@@ -12,8 +12,8 @@ page-signup {
                                     position: absolute;
                                     z-index: -999;
                                     bottom: 30px;
-                                    width: 70%;
                                     margin-left: 55px;
+                                    width: 70%;
                         }
 
                         a {
@@ -21,9 +21,8 @@ page-signup {
                         }
 
                         p.action {
-                                    position: absolute;
-                                    bottom: 30px;
-                                    padding: 20%;
+                                    color: #000;
+                                    padding-top: 20px;
                         }
 
                         ion-card.card {

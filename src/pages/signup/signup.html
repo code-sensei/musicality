@@ -24,11 +24,11 @@
                                                             <ion-label color="light" floating>Password</ion-label>
                                                             <ion-input type="password" placeholder="" [(ngModel)]="password"></ion-input>
                                                 </ion-item>
+
+            <p class="action" color="light">Already have an account? <a color="secondary" (click)="toLoginPage()">Login now.</a></p>
                                     </ion-list>
                         </ion-card-content>
             </ion-card>
-
-            <p class="action" color="light">Already have an account? <a color="secondary" (click)="toLoginPage()">Login now.</a></p>
             
             <button class="signup" ion-button color="light" block round outline (click)="signup()">Signup</button>
 </ion-content>
