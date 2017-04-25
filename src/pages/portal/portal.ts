@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Storage } from "@ionic/storage";
 import { FileChooser } from "@ionic-native/file-chooser";
 import { MediaPlugin, MediaObject } from "@ionic-native/media";
 import { FilePath } from "@ionic-native/file-path";
@@ -20,11 +21,13 @@ import { FilePath } from "@ionic-native/file-path";
 export class Portal {
             playing: boolean = true
             is_empty: boolean = true
-            local_tracks: any[] = []
+            local_tracks: Object[] = []
             nativePath: string
-            file;
+            current_track: any
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private fc: FileChooser, public fp: FilePath, public mp: MediaPlugin) {
+            keys: String[]
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private fc: FileChooser, public fp: FilePath, public mp: MediaPlugin, public storage: Storage) {
   }
 
   uploadLocal() {
@@ -33,8 +36,24 @@ export class Portal {
                         this.fp.resolveNativePath(uri).then((result) => {
                                     this.nativePath = result
 
-                                    this.mp.create(this.nativePath).then((file: MediaObject) => {
-                                                file.play()
+                                    this.mp.create(this.nativePath).then((file) => {
+                                                console.log(file);
+                                                alert(file)
+                                                this.current_track = file;
+                                                this.current_track.play()
+
+                                                //Push chosen file to $local_tracks array
+                                                this.local_tracks.push(file)
+                                                this.keys = Object.keys(this.local_tracks);
+                                                alert(this.local_tracks)
+
+                                                //change $is_empty to false
+                                                this.is_empty = false
+
+                                                //save $local_tracks array to localdb
+                                                this.storage.ready().then(() => {
+                                                            this.storage.set('selected_tracks', this.local_tracks);
+                                                })
                                     })
                         }, (err) => {
                                     //AlertController alert
@@ -56,11 +75,6 @@ export class Portal {
                         alert('No FC plugin available')
             })
 
-            //Push chosen file to $local_tracks array
-
-            //change $is_empty to false
-
-            //save $local_tracks array to localdb
   }
 
 //   audioplay() {
@@ -71,6 +85,26 @@ export class Portal {
     
 //     this.file.play();
 //   }
+
+pauseAudio(current_track) {
+            current_track = this.current_track
+            current_track.pause();
+            this.playing = !this.playing;
+}
+
+playAudio(current_track) {
+            current_track = this.current_track
+            current_track.pause();
+            this.playing = !this.playing;
+}
+
+playNext() {
+
+}
+
+playPrev() {
+
+}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Portal');

@@ -1,5 +1,11 @@
 page-portal {
 
+            ion-item.tracks {
+                        color: #000;
+                        position: absolute;
+                        top: 35%;
+            }
+
             ion-footer {
             height: 75px;
             background-color: map-get($colors, primary);

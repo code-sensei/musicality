@@ -4,6 +4,8 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
+
+
 <ion-header>
 
   <ion-navbar color="primary" class="nav" hideBackButton="true">
@@ -26,6 +28,14 @@
                         
             </ion-slides>
 
+            <ion-list no-lines>
+
+                        <ion-item *ngFor="let key of keys" class="tracks">
+                                    {{local_tracks[key].title}}
+                        </ion-item>
+
+            </ion-list>
+
             <ion-footer>
             
                         <ion-grid>
@@ -37,8 +47,8 @@
                                                 </ion-col>
             
                                                 <ion-col width="33">
-                                                            <button *ngIf="playing" (click)="playTrack(currentTrack)" color="light" clear ion-button icon-only><ion-icon name="play"></ion-icon></button>
-                                                            <button *ngIf="" (click)="pauseTrack(currentTrack)" color="light" clear ion-button icon-only><ion-icon name="pause"></ion-icon></button>
+                                                            <button *ngIf="playing" (click)="playAudio(currentTrack)" color="light" clear ion-button icon-only><ion-icon name="play"></ion-icon></button>
+                                                            <button *ngIf="!playing" (click)="pauseAudio(currentTrack)" color="light" clear ion-button icon-only><ion-icon name="pause"></ion-icon></button>
                                                 </ion-col>
             
                                                 <ion-col width="33">
