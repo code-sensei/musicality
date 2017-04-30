@@ -5,34 +5,53 @@
   Ionic pages and navigation.
 -->
 
-
 <ion-header>
 
   <ion-navbar color="primary" class="nav" hideBackButton="true">
-              <ion-avatar item-left>
+              <!--<button ion-button menuToggle="menu" end>
+                           <ion-icon name="more"></ion-icon>
+              </button>-->
+              <!--<ion-icon name="menu" menuToggle="menu" left></ion-icon>-->
+              <!--<ion-avatar item-left>
                           <img src="">
-              </ion-avatar>
-    <ion-title>Portal</ion-title>
+              </ion-avatar>-->
+            <ion-title>My Music</ion-title>
+            <ion-buttons end padding>
+                        <button ion-button (click)="uploadLocal()">
+                                    <ion-icon name="download"></ion-icon>
+                        </button>
+            </ion-buttons>
+            <ion-buttons end padding>
+                        <button ion-button (click)="openMenu()">
+                                    <ion-icon name="more"></ion-icon>
+                        </button>
+            </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content >
+ 
+            <ion-slides pager  *ngIf="is_empty">
 
-            <ion-slides pager>
-
-                        <ion-slide *ngIf="is_empty">
+                        <ion-slide>
+                        <!--<div class="help">-->
                                     No files available. Please import some files
                                     <button ion-button large (click)="uploadLocal()" style="margin-top: 2em">Import</button>
+                        <!--</div>-->
                         </ion-slide>
                         
             </ion-slides>
 
-            <ion-list no-lines>
+            <ion-list no-lines inset class="tracks" fullscreen>
 
-                        <ion-item *ngFor="let key of keys" class="tracks">
-                                    {{local_tracks[key].title}}
-                        </ion-item>
+                                    <!--<button ion-item text-wrap *ngFor="let track of local_tracks; #i = index;" block outline padding color="primary" (click)="playItem(i)">
+                                                {{ track }}
+                                    </button>-->
+
+                                    <button ion-button text-wrap icon-right outline block class="tracks" color="primary" *ngFor="let track of local_tracks; let i = index;" (click)="playItem(i)">
+                                                {{ track }}
+                                    </button>
 
             </ion-list>
 
@@ -43,16 +62,16 @@
                                     <ion-row>
             
                                                 <ion-col width="33">
-                                                            <button (click)="prevTrack()" color="light" clear ion-button icon-only><ion-icon name="skip-backward"></ion-icon></button>
+                                                            <button (click)="playPrev()" color="light" clear ion-button icon-only><ion-icon name="skip-backward"></ion-icon></button>
                                                 </ion-col>
             
                                                 <ion-col width="33">
-                                                            <button *ngIf="playing" (click)="playAudio(currentTrack)" color="light" clear ion-button icon-only><ion-icon name="play"></ion-icon></button>
-                                                            <button *ngIf="!playing" (click)="pauseAudio(currentTrack)" color="light" clear ion-button icon-only><ion-icon name="pause"></ion-icon></button>
+                                                            <button *ngIf="!current_track.playing" (click)="playAudio()" color="light" clear ion-button icon-only><ion-icon name="play"></ion-icon></button>
+                                                            <button *ngIf="current_track.playing" (click)="pauseAudio()" color="light" clear ion-button icon-only><ion-icon name="pause"></ion-icon></button>
                                                 </ion-col>
             
                                                 <ion-col width="33">
-                                                            <button (click)="nextTrack()" color="light" clear ion-button icon-only><ion-icon name="skip-forward"></ion-icon></button>
+                                                            <button (click)="playNext()" color="light" clear ion-button icon-only><ion-icon name="skip-forward"></ion-icon></button>
                                                 </ion-col>
             
                                       </ion-row>

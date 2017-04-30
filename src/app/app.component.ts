@@ -3,13 +3,34 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { Auth } from '@ionic/cloud-angular';
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   rootPage:string = 'Home';
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  private portalPage;
+  private feedbackPage;
+  private copyrightPage;
+  private helpPage;
+  private loginPage;
+
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public auth: Auth) {
+
+            this.portalPage = 'Portal';
+            this.feedbackPage = 'Feedback';
+            this.copyrightPage = 'Copyright';
+            this.loginPage = 'Login';
+            this.helpPage = 'Help'
+
+            if(this.auth.isAuthenticated()) {
+                         this.rootPage = this.portalPage
+            } else {
+                        this.rootPage = this.loginPage
+            }
+
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -17,5 +38,10 @@ export class MyApp {
       splashScreen.hide();
     });
   }
+
+  openPage(p) {
+            this.rootPage = p;
+  }
+
 }
 

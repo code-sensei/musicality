@@ -1,24 +1,31 @@
 page-portal {
 
-            ion-item.tracks {
-                        color: #000;
-                        position: absolute;
-                        top: 35%;
+            $song-card-height: 90px;
+ 
+            ion-list.tracks {
+                        position: relative;
+                        top: 0;
+
+                        button {
+                                    width: 100%;
+                                    padding: 5px;
+                        }
             }
 
+
             ion-footer {
-            height: 75px;
-            background-color: map-get($colors, primary);
+                        height: 75px;
+                        background-color: map-get($colors, primary);
  
-            ion-grid, ion-row, ion-col {
-                height: 100%;
-            }
- 
-            ion-col {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
+                        ion-grid, ion-row, ion-col {
+                                    height: 100%;
+                        }
+            
+                        ion-col {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                        }
         }
 
 }

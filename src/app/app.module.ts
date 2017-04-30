@@ -9,11 +9,11 @@ import { FilePath } from "@ionic-native/file-path";
 import { MediaPlugin } from "@ionic-native/media";
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { IonicStorageModule } from "@ionic/storage";
+import { SocialSharing } from "@ionic-native/social-sharing";
 
 import { MyApp } from './app.component';
 
 import { AuthService } from "../providers/auth";
-
 
 const cloudSettings: CloudSettings = {
   'core': {
@@ -51,6 +51,7 @@ const cloudSettings: CloudSettings = {
     FileChooser,
     FilePath,
     MediaPlugin,
+    SocialSharing,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
