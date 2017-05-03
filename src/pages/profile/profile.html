@@ -1,0 +1,116 @@
+<!--
+  Generated template for the Profile page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Profile</ion-title>
+    <ion-buttons end padding>
+            <button ion-button (click)="openMenu()" icon-only>
+                        <ion-icon name="more"></ion-icon>
+            </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+            <div class="header">
+                        <img [src]="profile_img"  width="100%" height="45%"/>
+            </div>
+
+            <div padding>
+                        <ion-segment [(ngModel)]="profile">
+                                    <ion-segment-button value="info">
+                                                My Profile
+                                    </ion-segment-button>
+                                    <ion-segment-button value="edit">
+                                                Edit profile
+                                    </ion-segment-button>
+                        </ion-segment>
+            </div>
+
+            <div [ngSwitch]="profile">
+                        <div *ngSwitchCase="'info'" selected>
+                                    <ion-list inset>
+                                                <ion-list-header >
+                                                            Basic information
+                                                </ion-list-header>
+                                                <ion-item class="fullname">
+                                                            <ion-label fixed >Fullname</ion-label>
+                                                            <ion-input type="text" disabled="true" placeholder="first and last name" [(ngModel)]="fullname"></ion-input>
+                                                </ion-item>
+                                                <!--<ion-item>-->
+                                                            <ion-list no-lines class="email">
+                                                                        <ion-list-header>
+                                                                                    Email address(es)
+                                                                        </ion-list-header>
+                                                                        <ion-item *ngFor="let email of dummy_e; let i = index">
+                                                                                    {{email}}
+                                                                        </ion-item>
+                                                            </ion-list>
+                                                            <!--<ion-item-group>
+                                                                        <ion-item-divider>
+                                                                                    Email address(es)
+                                                                                    <button ion-button icon-only (click)="addEmail()" style="float:right; width: 10%" padding>
+                                                                                                <ion-icon name="add"></ion-icon>
+                                                                                    </button>
+                                                                        </ion-item-divider>
+                                                                        <ion-item *ngFor="let email of dummy_e; let i = index">
+                                                                                    {{email}}
+                                                                        </ion-item>
+                                                            </ion-item-group>-->
+                                                <!--</ion-item>-->
+                                                <!--<ion-item>-->
+                                                            <ion-list no-lines class="mobile">
+                                                                        <ion-list-header>
+                                                                                    Mobile
+                                                                        </ion-list-header>
+                                                                        <ion-item *ngFor="let num of dummy_m; let i = index">
+                                                                                    {{num}}
+                                                                        </ion-item>
+                                                            </ion-list>
+                                                <!--</ion-item>-->
+                                                
+                                                <!--mobile list item-->
+                                                <!--<ion-item> 
+                                                            <ion-row>
+                                                                        <ion-col width-90 color="light">
+                                                                                    <ion-list inset no-lines>
+                                                                                                <ion-item-divider>
+                                                                                                            Mobile
+                                                                                                </ion-item-divider>
+                                                                                                <ion-item *ngFor="let mobile of  mobile_numbers">
+                                                                                                            <ion-input type="tel" disabled="true" placeholder="mobile number">{{mobile}}</ion-input>
+                                                                                                </ion-item>
+                                                                                    </ion-list>
+                                                                        </ion-col>
+                                                                        <ion-col width-10 color="secondary">
+                                                                                    <button ion-button icon-right icon-only>
+                                                                                                <ion-icon name="add"></ion-icon>
+                                                                                    </button>
+                                                                        </ion-col>
+                                                            </ion-row>
+                                                </ion-item>-->
+                                    </ion-list>
+
+                        </div>
+
+                         <div  *ngSwitchCase="'edit'">
+
+                                    <ion-list inset>
+                                                <ion-list-header>
+                                                            Edit Your Information
+                                                </ion-list-header>
+                                    </ion-list>
+
+                         </div>
+
+            </div>
+
+</ion-content>

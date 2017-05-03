@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, MenuController } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
 import { NativeStorage } from "@ionic-native/native-storage";
 
@@ -23,7 +23,9 @@ export class Login {
             password: string
             username: string
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public auth: AuthService, public store: Storage,  public storage: NativeStorage, public load: LoadingController) {
+  constructor(public menu: MenuController, public navCtrl: NavController, public navParams: NavParams, public auth: AuthService, public store: Storage,  public storage: NativeStorage, public load: LoadingController) {
+             this.menu.enable(false, 'menu')
+             
               //Get user stored username at signup
               this.store.ready().then(() => {
                           this.store.get('username').then((res) => {

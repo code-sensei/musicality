@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams , MenuController} from 'ionic-angular';
 
 import { AuthService } from "../../providers/auth";
 
@@ -16,7 +16,8 @@ import { AuthService } from "../../providers/auth";
 })
 export class Home {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public auth: AuthService) {
+  constructor(public menu: MenuController, public navCtrl: NavController, public navParams: NavParams, public auth: AuthService) {
+              this.menu.enable(false, 'menu')
   }
 
 

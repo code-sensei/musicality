@@ -16,6 +16,8 @@ export class MyApp {
   private copyrightPage;
   private helpPage;
   private loginPage;
+  private profilePage;
+  private homePage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public auth: Auth) {
 
@@ -23,12 +25,14 @@ export class MyApp {
             this.feedbackPage = 'Feedback';
             this.copyrightPage = 'Copyright';
             this.loginPage = 'Login';
-            this.helpPage = 'Help'
+            this.helpPage = 'Help';
+            this.profilePage = 'Profile';
+            this.homePage = 'Home';
 
             if(this.auth.isAuthenticated()) {
                          this.rootPage = this.portalPage
             } else {
-                        this.rootPage = this.loginPage
+                        this.rootPage = this.homePage
             }
 
     platform.ready().then(() => {

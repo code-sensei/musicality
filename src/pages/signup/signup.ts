@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, MenuController } from 'ionic-angular';
 
 import { AuthService } from "../../providers/auth";
 
@@ -20,8 +20,9 @@ export class Signup {
             password: string
             username: string
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public auth: AuthService,
+  constructor(public menu: MenuController, public navCtrl: NavController, public navParams: NavParams, public auth: AuthService,
                         public load: LoadingController) {
+                                    this.menu.enable(false, 'menu')
   }
 
   signup() {
