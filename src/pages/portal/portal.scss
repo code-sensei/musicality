@@ -15,7 +15,7 @@ page-portal {
 
             ion-footer {
                         height: 75px;
-                        background-color: map-get($colors, primary);
+                        background-color: map-get($colors, theme_dark);
  
                         ion-grid, ion-row, ion-col {
                                     height: 100%;

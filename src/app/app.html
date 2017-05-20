@@ -1,29 +1,79 @@
 <!--App menu-->
 <ion-menu [content]="content" color="primary">
-  <ion-header>
+  <!--<ion-header>
     <ion-toolbar>
       <ion-title>Menu</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header>-->
 
   <ion-content>
-    <ion-list>
-            <button ion-item menuClose (click)="openPage(portalPage)">
-                Portal
-            </button>
-      <button ion-item menuClose (click)="openPage(feedbackPage)">
-                Feedback
-            </button>
-            <button ion-item menuClose (click)="openPage(copyrightPage)">
-                Copyright
-            </button>
-            <button ion-item menuClose (click)="openPage(helpPage)">
-                Help
-            </button>
-            <button ion-item menuClose (click)="openPage(profilePage)">
-                Profile
-            </button>
-    </ion-list>
+            <!--<ion-list>
+                        <button ion-item menuClose (click)="openPage(portalPage)">
+                        Portal
+                        </button>
+            <button ion-item menuClose (click)="openPage(feedbackPage)">
+                        Feedback
+                        </button>
+                        <button ion-item menuClose (click)="openPage(copyrightPage)">
+                        Copyright
+                        </button>
+                        <button ion-item menuClose (click)="openPage(helpPage)">
+                        Help
+                        </button>
+                        <button ion-item menuClose (click)="openPage(profilePage)">
+                        Profile
+                        </button>
+            </ion-list>-->
+
+            <div class="header">
+                        <ion-avatar item-left>
+                                    <img [src]="icon" height="60px" width="60px" />
+                        </ion-avatar>
+            </div>
+            <ion-searchbar (ionInput)="getItems($event)" color="theme_dark"></ion-searchbar>
+            <div class="content">
+                        <ion-list no-lines>
+                                    <ion-item-divider >
+                                                Pages
+                                    </ion-item-divider>
+                                    <button ion-item menuClose (click)="openPage(portalPage)">
+                                                My Music
+                                    </button>
+                                    <button ion-item menuClose (click)="openPage(discoverPage)">
+                                                Discover
+                                    </button>
+                                    <button ion-item menuClose (click)="openPage(playlistPage)">
+                                                Playlists
+                                    </button>
+                                    <button ion-item menuClose (click)="openPage(followPage)">
+                                                Follow
+                                    </button>
+                                    <button ion-item menuClose (click)="openPage(inboxPage)">
+                                                Inbox
+                                    </button>
+                                    <ion-item-divider >
+                                                Others
+                                    </ion-item-divider>
+                                    <button ion-item menuClose (click)="openPage(themePage)">
+                                                Theme
+                                    </button>
+                                    <button ion-item menuClose (click)="openPage(SettingsPage)">
+                                                Settings
+                                    </button>
+                                    <button ion-item menuClose (click)="openPage(aboutPage)">
+                                                About
+                                    </button>
+                                    <button ion-item menuClose (click)="openPage(feedbackPage)">
+                                                Feedback
+                                    </button>
+                                    <button ion-item menuClose (click)="openPage(helpPage)">
+                                                Help
+                                    </button>
+                                    <button ion-item menuClose (click)="openPage(copyrightPage)">
+                                                Copyright
+                                    </button>
+                        </ion-list>
+            </div>
   </ion-content>
 
 </ion-menu>

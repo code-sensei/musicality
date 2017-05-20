@@ -14,15 +14,18 @@ import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angul
 })
 export class Profile {
             fullname: string = 'Tsowa Babangida'
-
+            username: string = ""
+            is_editable: false
             dummy_e : string[] = [
                         'tsowababangida@gmail.com',
                         'mainasara@mail.com'
             ]
+            emails: string[] = []
+            mobiles: string[] = []
             dummy_m: string[] = [
                         '+2347050706655'
             ]
-            profile_img : string = '../assets/jasper.jpg'
+            profile_img: string = '../assets/jasper.jpg'
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public menu: MenuController) {
               this.menu.enable(true, 'menu')

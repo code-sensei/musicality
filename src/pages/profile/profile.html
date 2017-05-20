@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar color="primary">
+  <ion-navbar color="theme_dark">
     <ion-title>Profile</ion-title>
     <ion-buttons end padding>
             <button ion-button (click)="openMenu()" icon-only>
@@ -44,6 +44,10 @@
                                                 <ion-item class="fullname">
                                                             <ion-label fixed >Fullname</ion-label>
                                                             <ion-input type="text" disabled="true" placeholder="first and last name" [(ngModel)]="fullname"></ion-input>
+                                                </ion-item>
+                                                <ion-item class="username">
+                                                            <ion-label fixed >Username</ion-label>
+                                                            <ion-input type="text" disabled="true" placeholder="first and last name" [(ngModel)]="username"></ion-input>
                                                 </ion-item>
                                                 <!--<ion-item>-->
                                                             <ion-list no-lines class="email">
@@ -103,10 +107,22 @@
 
                          <div  *ngSwitchCase="'edit'">
 
-                                    <ion-list inset>
+                                     <!--<button ion-fab side="bottom">
+                                                 <ion-icon name="check" (click)="enableEdit()"></ion-icon>
+                                     </button>-->
+
+                                    <ion-list inset no-lines>
                                                 <ion-list-header>
                                                             Edit Your Information
                                                 </ion-list-header>
+                                                <ion-item>
+                                                            <ion-label fixed >Fullname</ion-label>
+                                                            <ion-input type="text" placeholder="your chosen name" [disabled]="!is_editable"></ion-input>
+                                                </ion-item>
+                                                <ion-item>
+                                                            <ion-label fixed >Username</ion-label>
+                                                            <ion-input type="text" placeholder="something cool" [disabled]="!is_editable"></ion-input>
+                                                </ion-item>
                                     </ion-list>
 
                          </div>

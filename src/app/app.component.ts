@@ -19,7 +19,11 @@ export class MyApp {
   private profilePage;
   private homePage;
 
+  private icon: string;
+
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public auth: Auth) {
+
+              this.icon="../assets/checked.png";
 
             this.portalPage = 'Portal';
             this.feedbackPage = 'Feedback';
