@@ -1,31 +1,35 @@
 page-portal {
-
-            $song-card-height: 90px;
- 
-            ion-list.tracks {
-                        position: relative;
-                        top: 0;
-
-                        button {
-                                    width: 100%;
-                                    padding: 5px;
-                        }
-            }
-
-
-            ion-footer {
-                        height: 75px;
-                        background-color: map-get($colors, theme_dark);
- 
-                        ion-grid, ion-row, ion-col {
-                                    height: 100%;
-                        }
-            
-                        ion-col {
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                        }
+    .content {
+        background: -webkit-linear-gradient(bottom left, #2196f3, #64b5f6);
+        background: -moz-linear-gradient(bottom left, #2196f3, #64b5f6);
+        background: -o-linear-gradient(bottom left, #2196f3, #64b5f6);
+        background: linear-gradient(to top right, #2196f3, #64b5f6);
+        color: #fff;
+    }
+    $song-card-height: 90px;
+    .transparent {
+        background-color: transparent;
+    }
+    ion-list.tracks {
+        position: relative;
+        top: 0;
+        button {
+            width: 100%;
+            padding: 5px;
         }
-
+    }
+    ion-footer {
+        height: 75px;
+        background-color: map-get($colors, theme_light);
+        ion-grid,
+        ion-row,
+        ion-col {
+            height: 100%;
+        }
+        ion-col {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
 }

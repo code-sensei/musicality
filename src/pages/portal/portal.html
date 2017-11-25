@@ -30,9 +30,9 @@
 
 </ion-header>
 
-<ion-content >
+<ion-content class="content">
  
-            <ion-slides pager  *ngIf="is_empty">
+            <ion-slides pager  *ngIf="is_empty" class="transparent">
 
                         <ion-slide>
                         <!--<div class="help">-->
@@ -60,17 +60,23 @@
                         <ion-grid>
             
                                     <ion-row>
+
+                                                <ion-col width="25">
+                                                           <ion-thumbnail item-left>
+                                                                        <img src="http://lorempixel.com/300/180/fashion" />
+                                                            </ion-thumbnail>
+                                                </ion-col>
             
-                                                <ion-col width="33">
+                                                <ion-col width="25">
                                                             <button (click)="playPrev()" color="light" clear ion-button icon-only><ion-icon name="skip-backward"></ion-icon></button>
                                                 </ion-col>
             
-                                                <ion-col width="33">
+                                                <ion-col width="25">
                                                             <button *ngIf="!current_track.playing" (click)="playAudio()" color="light" clear ion-button icon-only><ion-icon name="play"></ion-icon></button>
                                                             <button *ngIf="current_track.playing" (click)="pauseAudio()" color="light" clear ion-button icon-only><ion-icon name="pause"></ion-icon></button>
                                                 </ion-col>
             
-                                                <ion-col width="33">
+                                                <ion-col width="25">
                                                             <button (click)="playNext()" color="light" clear ion-button icon-only><ion-icon name="skip-forward"></ion-icon></button>
                                                 </ion-col>
             

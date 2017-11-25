@@ -1,6 +1,8 @@
 {
   "name": "musicality",
   "app_id": "8b6f279e",
-  "v2": true,
-  "typescript": true
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
 }

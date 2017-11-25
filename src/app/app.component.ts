@@ -4,9 +4,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Auth } from '@ionic/cloud-angular';
-
+import { AuthService } from "../providers/auth";
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers: [AuthService]
 })
 export class MyApp {
   rootPage:string = 'Home';
@@ -18,10 +19,12 @@ export class MyApp {
   private loginPage;
   private profilePage;
   private homePage;
+  private discoverPage;
 
+  private settingsPage;
   private icon: string;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public auth: Auth) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public auth: Auth, public firebase: AuthService) {
 
               this.icon="../assets/checked.png";
 
@@ -32,7 +35,12 @@ export class MyApp {
             this.helpPage = 'Help';
             this.profilePage = 'Profile';
             this.homePage = 'Home';
+            this.discoverPage = 'Discover';
+            this.settingsPage = 'SettingsPage';
 
+            
+
+            // Change after auth.ts is changed to firebase
             if(this.auth.isAuthenticated()) {
                          this.rootPage = this.portalPage
             } else {
@@ -49,6 +57,10 @@ export class MyApp {
 
   openPage(p) {
             this.rootPage = p;
+  }
+
+  logout() {
+
   }
 
 }

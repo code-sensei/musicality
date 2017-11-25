@@ -5,6 +5,9 @@ import { Storage } from "@ionic/storage";
 import { NativeStorage } from "@ionic-native/native-storage";
 import 'rxjs/add/operator/map';
 
+import 'firebase'
+import { Firebase } from 'ionic-native';
+
 /*
   Generated class for the Auth provider.
 
@@ -13,6 +16,8 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class AuthService {
+
+      // TODO: Change to firebase auth
 
   constructor(public auth: Auth, public user: User, public toast: ToastController, public alert: AlertController, public store: Storage, public storage: NativeStorage) {
     console.log('Hello Auth Provider');
@@ -77,5 +82,9 @@ export class AuthService {
                         toast.present();
              });
   }//login end
+
+  logout() {
+      
+  }
 
 }

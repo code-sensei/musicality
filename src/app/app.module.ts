@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
+import { HttpModule } from "@angular/http";
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -10,10 +11,15 @@ import { MediaPlugin } from "@ionic-native/media";
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { IonicStorageModule } from "@ionic/storage";
 import { SocialSharing } from "@ionic-native/social-sharing";
+import { InAppBrowser } from "@ionic-native/in-app-browser";
+
+// import * as Blitzr from "blitzr-js-sdk";
+const Blitzr = require("blitzr-js-sdk");
 
 import { MyApp } from './app.component';
 
 import { AuthService } from "../providers/auth";
+import { SpotifyProvider } from '../providers/spotify/spotify';
 
 const cloudSettings: CloudSettings = {
   'core': {
@@ -37,7 +43,8 @@ const cloudSettings: CloudSettings = {
     IonicStorageModule.forRoot({
       name: '__musicality',
          driverOrder: ['indexeddb', 'sqlite', 'websql']
-    })
+    }),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -52,7 +59,8 @@ const cloudSettings: CloudSettings = {
     FilePath,
     MediaPlugin,
     SocialSharing,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    InAppBrowser,
+    {provide: ErrorHandler, useClass: IonicErrorHandler}, SpotifyProvider
   ]
 })
 export class AppModule {}

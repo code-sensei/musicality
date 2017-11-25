@@ -73,17 +73,19 @@ openMenu() {
   playItem(i) {
               let track_path = this.local_tracks_paths[i]
               console.log('Path to play: '  + track_path)
-              this.mp.create(track_path).then((file) => {
-                          if (this.current_track.playing) {
-                                      this.current_track.stop()
-                          }
-                                    this.current_track = file
-                                    this.current_track.play();
-                                    this.current_track.playing = true
-                                    this.current_track.index = i
+              this.mp.create(track_path).play()
+            //   .then((file) => {
+            //               if (this.current_track.playing) {
+            //                           this.current_track.stop()
+            //               }
+            //                         this.current_track = file
+            //                         this.current_track.play();
+            //                         this.current_track.playing = true
+            //                         this.current_track.index = i
 
-                                    console.log('Current playing index: ' + this.current_track.index)
-              })
+            //                         console.log('Current playing index: ' + this.current_track.index)
+            //   }
+            // )
 
             console.log('Local Paths: ' + this.local_tracks_paths)
   }
