@@ -25,12 +25,12 @@
                         </button>
             </ion-list>-->
 
-        <div class="header">
+        <!-- <div class="header">
             <ion-avatar item-left>
-                <!--<img [src]="icon" height="60px" width="60px" />-->
+                <!--<img [src]="icon" height="60px" width="60px" />
                 <img src="http://lorempixel.com/60/60/people" />
             </ion-avatar>
-        </div>
+        </div> -->
         <ion-searchbar (ionInput)="getItems($event)" color="light"></ion-searchbar>
         <div class="content">
             <ion-list no-lines>
@@ -40,24 +40,24 @@
                 <button ion-item menuClose (color)="theme_dark" (click)="openPage(portalPage)">
                                                 My Music
                                     </button>
-                <button ion-item menuClose (color)="theme_dark" (click)="openPage(discoverPage)">
+                <!-- <button ion-item menuClose (color)="theme_dark" (click)="openPage(discoverPage)">
                                                 Discover
-                                    </button>
+                                    </button> -->
                 <button ion-item menuClose (color)="theme_dark" (click)="openPage(playlistPage)">
                                                 Playlists
                                     </button>
-                <button ion-item menuClose (color)="theme_dark" (click)="openPage(followPage)">
+                <!-- <button ion-item menuClose (color)="theme_dark" (click)="openPage(followPage)">
                                                 Follow
-                                    </button>
-                <button ion-item menuClose (color)="theme_dark" (click)="openPage(inboxPage)">
+                                    </button> -->
+                <!-- <button ion-item menuClose (color)="theme_dark" (click)="openPage(inboxPage)">
                                                 Inbox
-                                    </button>
+                                    </button> -->
                 <ion-item-divider>
                     Others
                 </ion-item-divider>
-                <button ion-item menuClose (color)="theme_dark" (click)="openPage(themePage)">
+                <!-- <button ion-item menuClose (color)="theme_dark" (click)="openPage(themePage)">
                                                 Theme
-                                    </button>
+                                    </button> -->
                 <button ion-item menuClose (color)="theme_dark" (click)="openPage(settingsPage)">
                                                 Settings
                                     </button>

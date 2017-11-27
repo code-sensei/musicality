@@ -1,41 +1,33 @@
 page-signup {
-
-            .content {
-                        display: flex;
-                        text-align: center;
-                        color: #fff;
-                        //background-image: url('../../assets/signup.jpg');
-                        background-image: url('../assets/3.jpg');
-                        background-size: cover;
-
-                        button.signup {
-                                    position: absolute;
-                                    z-index: -999;
-                                    bottom: 30px;
-                                    margin-left: 55px;
-                                    width: 70%;
-                        }
-
-                        a {
-                                    color: #000;
-                        }
-
-                        p.action {
-                                    color: #000;
-                                    padding-top: 20px;
-                        }
-
-                        ion-card.card {
-                                    position: absolute;
-                                    top: 20%;
-                                    background-color: rgba(255, 255, 255, .3);
-                                    box-shadow: 0;
-
-                                    ion-item.transparent {
-                                                background-color: transparent;
-                                    }
-                        }
+    .content {
+        display: flex;
+        text-align: center;
+        color: #fff;
+        //background-image: url('../../assets/signup.jpg');
+        background-image: url('../assets/bg.jpg');
+        background-size: cover;
+        button.signup {
+            position: absolute;
+            z-index: -999;
+            bottom: 30px;
+            margin-left: 55px;
+            width: 70%;
+        }
+        a {
+            color: #000;
+        }
+        p.action {
+            color: #000;
+            padding-top: 20px;
+        }
+        ion-card.card {
+            position: absolute;
+            top: 20%;
+            background-color: rgba(255, 255, 255, .3);
+            box-shadow: 0;
+            ion-item.transparent {
+                background-color: transparent;
             }
-
-
+        }
+    }
 }

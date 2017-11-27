@@ -1,50 +1,39 @@
 page-login {
-
-            .content {
-                        display: flex;
-                        text-align: center;
-                        color: #fff;
-                        //background-image: url('../../assets/login.jpg');
-                        background-image: url('../assets/2.jpg');
-                        background-size: cover;
-
-                        button.login {
-                                    position: absolute;
-                                    z-index: -999;
-                                    bottom: 30px;
-                                    margin-left: 55px;
-                                    width: 70%;
-                        }
-
-                        a {
-                                    color: #000;
-                        }
-
-                        p.action {
-                                    color: #fff;
-                                    padding-top: 20px;
-                        }
-
-                        ion-card.card {
-                                    position: absolute;
-                                    top: 20%;
-                                    background-color: rgba(0, 0, 0, .3);
-                                    box-shadow: 0;
-
-                                    ion-item.transparent {
-                                                background-color: transparent;
-
-                                                ion-input {
-                                                            color: #fff;
-                                                }
-
-                                                button {
-                                                            padding: 20px;
-                                                }
-                                    }
-                        }
+    .content {
+        display: flex;
+        text-align: center;
+        color: #fff;
+        //background-image: url('../../assets/login.jpg');
+        background-image: url('../assets/bg.jpg');
+        background-size: cover;
+        button.login {
+            position: absolute;
+            z-index: -999;
+            bottom: 30px;
+            margin-left: 55px;
+            width: 70%;
+        }
+        a {
+            color: #000;
+        }
+        p.action {
+            color: #fff;
+            padding-top: 20px;
+        }
+        ion-card.card {
+            position: absolute;
+            top: 20%;
+            background-color: rgba(0, 0, 0, .3);
+            box-shadow: 0;
+            ion-item.transparent {
+                background-color: transparent;
+                ion-input {
+                    color: #fff;
+                }
+                button {
+                    padding: 20px;
+                }
             }
-
-            
-
+        }
+    }
 }

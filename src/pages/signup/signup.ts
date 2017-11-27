@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, MenuController } from 'ionic-angular';
 
-import { AuthService } from "../../providers/auth";
+import { AuthProvider } from "../../providers/auth/auth";
+
+import { Login } from "../login/login";
+import { Portal } from "../portal/portal";
 
 /**
  * Generated class for the Signup page.
@@ -13,6 +16,7 @@ import { AuthService } from "../../providers/auth";
 @Component({
   selector: 'page-signup',
   templateUrl: 'signup.html',
+  providers: [AuthProvider]
 })
 export class Signup {
 
@@ -20,7 +24,7 @@ export class Signup {
             password: string
             username: string
 
-  constructor(public menu: MenuController, public navCtrl: NavController, public navParams: NavParams, public auth: AuthService,
+  constructor(public menu: MenuController, public navCtrl: NavController, public navParams: NavParams, public auth: AuthProvider,
                         public load: LoadingController) {
                                     this.menu.enable(false, 'menu')
   }
@@ -31,15 +35,16 @@ export class Signup {
                           content: 'Signing you up for the service'
               });
               loading.present();
+              this.navCtrl.push(Portal);
              this.auth.signup(this.email, this.password, this.username)
-             this.navCtrl.push('Portal')
+            //  this.navCtrl.push('Portal')
              setTimeout(() =>{
                          loading.dismiss();
              }, 5000)
   }
 
   toLoginPage() {
-              this.navCtrl.push('Login');
+              this.navCtrl.push(Login);
   }
 
   ionViewDidLoad() {

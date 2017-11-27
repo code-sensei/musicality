@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
-
+import { Storage } from "@ionic/storage";
 import { Help } from "../help/help";
+import { AngularFireDatabase } from "angularfire2/database";
 
-import { AuthService } from "../../providers/auth";
+import { AuthProvider } from "../../providers/auth/auth";
+import { ProfileProvider } from "../../providers/profile/profile";
 /**
  * Generated class for the SettingsPage page.
  *
@@ -14,19 +16,32 @@ import { AuthService } from "../../providers/auth";
 @Component({
   selector: 'page-settings',
   templateUrl: 'settings.html',
+  providers: [AuthProvider, ProfileProvider]
 })
 export class SettingsPage {
 
       fullname: string;
       username: string;
-      bio: string;
       email: string;
       gender: any;
 
-      remember: boolean;
-
-  constructor(public menu: MenuController ,public navCtrl: NavController, public navParams: NavParams, public auth: AuthService) {
+  constructor(public menu: MenuController ,public navCtrl: NavController, public navParams: NavParams, public auth: AuthProvider, public profile: ProfileProvider, public db: AngularFireDatabase, public store: Storage) {
       this.menu.enable(true, 'menu');
+
+      this.store.ready().then(() => {
+            this.store.get('username').then((res) => {
+                  this.username = res;
+                  console.log('Username: ', this.username);
+            }).then(() => {
+                  this.db.database.ref('Users/' + this.username).once('value').then((snap) => {
+                        let val = snap.val();
+                         console.log('Value', val);
+                         this.email = val.email;
+                         this.gender = val.gender;
+                         this.fullname = val.fullname;
+                  })
+            })
+      });
   }
 
   openMenu() {
@@ -46,14 +61,14 @@ export class SettingsPage {
   }
 
   remember_me() {
-        if (this.remember === true) {
-              //remember login information by saving locally
+      //   if (this.remember === 'true') {
+      //         //remember login information by saving locally
 
-        }
+      //   }
   }
 
-  save() {
-
+  save(fullname: string, username: string, email: string, gender: string) {
+      this.profile.save(fullname, username, email, gender);
   }
 
   ionViewDidLoad() {

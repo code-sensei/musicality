@@ -3,7 +3,10 @@ import { IonicPage, NavController, NavParams, LoadingController, MenuController 
 import { Storage } from "@ionic/storage";
 import { NativeStorage } from "@ionic-native/native-storage";
 
-import { AuthService } from "../../providers/auth";
+import { AuthProvider } from "../../providers/auth/auth";
+
+import { Signup } from "../signup/signup";
+import { Portal } from '../portal/portal';
 
 /**
  * Generated class for the Login page.
@@ -15,7 +18,7 @@ import { AuthService } from "../../providers/auth";
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
-  providers: [AuthService]
+  providers: [AuthProvider]
 })
 export class Login {
 
@@ -23,7 +26,7 @@ export class Login {
             password: string
             username: string
 
-  constructor(public menu: MenuController, public navCtrl: NavController, public navParams: NavParams, public auth: AuthService, public store: Storage,  public storage: NativeStorage, public load: LoadingController) {
+  constructor(public menu: MenuController, public navCtrl: NavController, public navParams: NavParams, public auth: AuthProvider, public store: Storage,  public storage: NativeStorage, public load: LoadingController) {
              this.menu.enable(false, 'menu')
              
               //Get user stored username at signup
@@ -44,15 +47,15 @@ export class Login {
                           content: 'Logging in...'
               });
               loading.present();
+              this.navCtrl.push(Portal);
             this.auth.login(this.email, this.password, this.username);
-            this.navCtrl.push('Portal');
             setTimeout(() => {
                         loading.dismiss();
             }, 5000)
   }
 
   toSignupPage() {
-              this.navCtrl.push('Signup');
+              this.navCtrl.push(Signup);
   }
 
   ionViewDidLoad() {

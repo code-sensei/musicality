@@ -9,7 +9,7 @@
     <ion-navbar color="theme_dark" class="nav" hideBackButton="false">
         <ion-title>Settings</ion-title>
         <ion-buttons end padding>
-            <button ion-button icon-only clear color="light" (click)="save()">
+            <button ion-button icon-only clear color="light" (click)="save(fullname,username,email,gender,remember)">
                   <ion-icon name="checkmark"></ion-icon>
             </button>
         </ion-buttons>
@@ -34,11 +34,7 @@
         </ion-item>
         <ion-item>
             <ion-label stacked>Username</ion-label>
-            <ion-input type="text" [(ngModel)]="username"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label stacked>Bio</ion-label>
-            <ion-input type="text" [(ngModel)]="bio"></ion-input>
+            <ion-input type="text" [(ngModel)]="username" disabled="true"></ion-input>
         </ion-item>
         <ion-item-divider>
             <p (color)="theme_dark">Private Information</p>
@@ -58,9 +54,9 @@
         <button ion-item block clear (click)="change_password()"> change password </button>
         <button ion-item block clear (click)="open_help_page()"> Help &amp; Support </button>
         <button ion-item block clear (click)="logout()"> Sign out </button>
-        <button ion-item block clear (click)="remember_me()">
+        <!-- <button ion-item block clear (click)="remember_me()">
                   <ion-label>remember me</ion-label>
                   <ion-checkbox [checked]="remember" (color)="theme_dark()" ></ion-checkbox>
-        </button>
+        </button> -->
     </ion-list>
 </ion-content>
