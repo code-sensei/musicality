@@ -47,8 +47,8 @@ export class Login {
                           content: 'Logging in...'
               });
               loading.present();
-              this.navCtrl.push(Portal);
             this.auth.login(this.email, this.password, this.username);
+            this.navCtrl.push(Portal);
             setTimeout(() => {
                         loading.dismiss();
             }, 5000)
