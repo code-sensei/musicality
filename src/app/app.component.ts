@@ -31,13 +31,12 @@ export class MyApp {
   private profilePage;
   private homePage;
   private discoverPage;
-
   private settingsPage;
   private icon: string;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public firebase: AuthProvider) {
 
-              this.icon="../assets/checked.png";
+            this.icon="../assets/checked.png";
 
             this.portalPage = Portal;
             this.feedbackPage = Feedback;
@@ -49,13 +48,12 @@ export class MyApp {
             this.discoverPage = 'Discover';
             this.settingsPage = SettingsPage;
 
-            
-
             // Change after auth.ts is changed to firebase
+            console.log('Current user: ', this.firebase.auth.auth.currentUser);
             if(this.firebase.auth.auth.currentUser != null) {
-                         this.rootPage = this.portalPage
+                  this.rootPage = this.portalPage
             } else {
-                        this.rootPage = this.homePage
+                  this.rootPage = this.homePage
             }
 
     platform.ready().then(() => {
@@ -71,7 +69,8 @@ export class MyApp {
   }
 
   logout() {
-
+      this.firebase.logout();
+      // this.navCtrl.push(Home);
   }
 
 }

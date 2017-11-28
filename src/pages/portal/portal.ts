@@ -7,6 +7,8 @@ import { FilePath } from "@ionic-native/file-path";
 
 import { MenuController } from "ionic-angular";
 
+import { AuthProvider } from "../../providers/auth/auth";
+
 
 /**
  * Generated class for the Portal page.
@@ -22,7 +24,7 @@ declare var _objectInstance;
 @Component({
   selector: 'page-portal',
   templateUrl: 'portal.html',
-  providers: []
+  providers: [AuthProvider]
 })
 export class Portal {
             playing: any
@@ -40,8 +42,10 @@ export class Portal {
             saved_tracks: any;
             saved_tracks_paths: any;
 
-  constructor(public menu: MenuController,  public navCtrl: NavController, public navParams: NavParams, private fc: FileChooser, public fp: FilePath, public mp: MediaPlugin, public storage: Storage) {
-            this.menu.enable(true, 'menu')
+  constructor(public menu: MenuController,  public navCtrl: NavController, public navParams: NavParams, private fc: FileChooser, public fp: FilePath, public mp: MediaPlugin, public storage: Storage, public auth: AuthProvider) {
+            this.menu.enable(true, 'menu');
+
+            console.log('Current user: ', this.auth.auth.auth.currentUser);
 
             //Retrieve saved tracks and paths
             this.storage.ready().then(() => {

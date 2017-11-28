@@ -27,22 +27,7 @@ export class AuthProvider {
   }
 
   login(email: string, password: string, username: string) {
-      this.auth.auth.signInWithEmailAndPassword(email, password).then(() => {
-            let login_toast = this.toast.create({
-                  message: 'login successful',
-                  position: 'bottom',
-                  duration: 3000
-            });
-            login_toast.present();
-            // this.navCtrl.push(Portal);
-      }).catch(err => {
-            let login_error_toast = this.toast.create({
-                  message: 'couldn\'t log you in \n Error: ' + err,
-                  position: 'bottom',
-                  duration: 3000
-            });
-            login_error_toast.present();
-      })
+      this.auth.auth.signInWithEmailAndPassword(email, password);
   }
 
   signup(email: string, password: string, username: string) {

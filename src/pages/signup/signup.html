@@ -6,29 +6,29 @@
 -->
 
 <ion-content class="content">
-            <ion-card class="card">
-                        <ion-card-header color="light">
-                                    Your quest awaits
-                        </ion-card-header>
-                        <ion-card-content>
-                                    <ion-list no-lines inset class="transparent">
-                                                <ion-item class="transparent">
-                                                            <ion-label color="light" floating>Username</ion-label>
-                                                            <ion-input type="email" placeholder="" [(ngModel)]="username"></ion-input>
-                                                </ion-item>
-                                                <ion-item class="transparent">
-                                                            <ion-label color="light" floating>Email</ion-label>
-                                                            <ion-input type="email" placeholder="" [(ngModel)]="email"></ion-input>
-                                                </ion-item>
-                                                <ion-item class="transparent">
-                                                            <ion-label color="light" floating>Password</ion-label>
-                                                            <ion-input type="password" placeholder="" [(ngModel)]="password"></ion-input>
-                                                </ion-item>
+    <ion-card class="card">
+        <ion-card-header color="light">
+            Your quest awaits
+        </ion-card-header>
+        <ion-card-content>
+            <ion-list no-lines inset class="transparent">
+                <ion-item class="transparent">
+                    <ion-label color="light" floating>Username</ion-label>
+                    <ion-input type="email" placeholder="" [(ngModel)]="username"></ion-input>
+                </ion-item>
+                <ion-item class="transparent">
+                    <ion-label color="light" floating>Email</ion-label>
+                    <ion-input type="email" placeholder="" [(ngModel)]="email"></ion-input>
+                </ion-item>
+                <ion-item class="transparent">
+                    <ion-label color="light" floating>Password</ion-label>
+                    <ion-input type="password" placeholder="" [(ngModel)]="password"></ion-input>
+                </ion-item>
 
-            <p class="action" color="light">Already have an account? <a color="secondary" (click)="toLoginPage()">Login now.</a></p>
-                                    </ion-list>
-                        </ion-card-content>
-            </ion-card>
-            
-            <button class="signup" ion-button color="light" block round outline (click)="signup()">Signup</button>
+                <p class="action" color="light">Already have an account? <a color="light" (click)="toLoginPage()">Login now.</a></p>
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
+
+    <button class="signup" ion-button color="light" block round (click)="signup()"> Signup </button>
 </ion-content>

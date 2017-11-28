@@ -30,6 +30,7 @@ import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/dat
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthProvider } from '../providers/auth/auth';
 import { ProfileProvider } from "../providers/profile/profile";
+import { Home } from '../pages/home/home';
 
 export const firebaseConfig = {
       apiKey: "AIzaSyCQtHDUaBj7YM7m8A7MWor7uZ46d2vaVQI",
@@ -42,6 +43,7 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     MyApp,
+    Home,
     Login,
     Signup,
     Portal,
@@ -67,6 +69,7 @@ export const firebaseConfig = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    Home,
     Login,
     Signup,
     Portal,

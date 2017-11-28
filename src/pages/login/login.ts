@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, MenuController, ToastController } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
 import { NativeStorage } from "@ionic-native/native-storage";
 
 import { AuthProvider } from "../../providers/auth/auth";
 
+import { AngularFireAuth } from "angularfire2/auth";
+import { AngularFireDatabase } from 'angularfire2/database';
+
 import { Signup } from "../signup/signup";
 import { Portal } from '../portal/portal';
+import { Home } from '../home/home';
 
 /**
  * Generated class for the Login page.
@@ -26,7 +30,7 @@ export class Login {
             password: string
             username: string
 
-  constructor(public menu: MenuController, public navCtrl: NavController, public navParams: NavParams, public auth: AuthProvider, public store: Storage,  public storage: NativeStorage, public load: LoadingController) {
+  constructor(public menu: MenuController, public navCtrl: NavController, public navParams: NavParams, public store: Storage,  public storage: NativeStorage, public load: LoadingController, public auth: AngularFireAuth, public toast: ToastController, public db: AngularFireDatabase) {
              this.menu.enable(false, 'menu')
              
               //Get user stored username at signup
@@ -47,8 +51,25 @@ export class Login {
                           content: 'Logging in...'
               });
               loading.present();
-            this.auth.login(this.email, this.password, this.username);
-            this.navCtrl.push(Portal);
+            this.auth.auth.signInWithEmailAndPassword(this.email, this.password).then(() => {
+                  let login_toast = this.toast.create({
+                        message: 'login successful',
+                        position: 'bottom',
+                        duration: 3000
+                  });
+                  login_toast.present();
+                  this.navCtrl.push(Portal);
+                  loading.dismiss();
+            }).catch(err => {
+                  let login_error_toast = this.toast.create({
+                        message: 'Couldn\'t log you in \n Error: ' + err,
+                        position: 'bottom',
+                        duration: 3000
+                  });
+                  login_error_toast.present();
+                  this.navCtrl.push(Home);
+                  loading.dismiss();
+            });
             setTimeout(() => {
                         loading.dismiss();
             }, 5000)

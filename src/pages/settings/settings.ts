@@ -6,6 +6,7 @@ import { AngularFireDatabase } from "angularfire2/database";
 
 import { AuthProvider } from "../../providers/auth/auth";
 import { ProfileProvider } from "../../providers/profile/profile";
+import { Home } from '../home/home';
 /**
  * Generated class for the SettingsPage page.
  *
@@ -49,7 +50,7 @@ export class SettingsPage {
 }
 
   change_password() {
-
+      this.auth.change_password(this.email);
   }
 
   open_help_page() {
@@ -58,6 +59,7 @@ export class SettingsPage {
 
   logout() {
       this.auth.logout();
+      this.navCtrl.push(Home);
   }
 
   remember_me() {

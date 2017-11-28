@@ -15,10 +15,10 @@
             <h2 class="heading">Step 1</h2>
             <ion-row class="exp">
                 <ion-col width-50>
-                    <button ion-button outline round color="light" (click)="toLoginPage()">Login</button>
+                    <button ion-button round color="light" class="action-btn" (click)="toLoginPage()">Login</button>
                 </ion-col>
                 <ion-col width-50>
-                    <button ion-button outline round color="light" (click)="toSignupPage()">Signup</button>
+                    <button ion-button round color="light" class="action-btn" (click)="toSignupPage()">Signup</button>
                 </ion-col>
             </ion-row>
         </ion-slide>
@@ -33,7 +33,7 @@
         <ion-slide>
             <h2 class="heading"> Step 4 </h2>
             <p class="exp">Enjoy your chosen tracks</p>
-            <button ion-button full-width outline color="light" style="padding: 30px;" (click)="toLoginPage()">Continue</button>
+            <button ion-button full-width round color="light" class="action-btn" style="padding: 15px;" (click)="toLoginPage()">Continue</button>
         </ion-slide>
     </ion-slides>
 </ion-content>

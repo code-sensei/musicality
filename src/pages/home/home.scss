@@ -3,5 +3,8 @@ page-home {
         //background-image: url('../../assets/home.jpg');
         background-image: url('../assets/bg.jpg');
         color: #eeeeee;
+        .action-btn {
+            color: map-get($colors, primary);
+        }
     }
 }
