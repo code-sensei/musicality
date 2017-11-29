@@ -67,8 +67,11 @@ export class AuthProvider {
                   position: 'bottom',
                   duration: 3000
             });
+            this.store.ready().then(() => {
+                  this.store.remove('username');
+                  this.store.remove('current_user');
+            })
             signout_toast.present();
-            // this.navCtrl.push(Login);
       })
   }
 

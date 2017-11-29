@@ -13,8 +13,8 @@
         <ion-card-content>
             <ion-list no-lines inset class="transparent">
                 <ion-item class="transparent">
-                    <ion-label color="light" floating>Email</ion-label>
-                    <ion-input type="email" placeholder="" [(ngModel)]="email"></ion-input>
+                    <ion-label color="light" floating>Username</ion-label>
+                    <ion-input type="email" placeholder="" [(ngModel)]="username"></ion-input>
                 </ion-item>
                 <ion-item class="transparent">
                     <ion-label color="light" floating>Password</ion-label>
@@ -26,5 +26,5 @@
         </ion-card-content>
     </ion-card>
 
-    <button class="login" ion-button color="light" block round (click)="login()"> login </button>
+    <button class="login" ion-button color="light" block round (click)="login(username, password)"> login </button>
 </ion-content>

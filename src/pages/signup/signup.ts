@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, MenuController, ToastController } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
+// import { EmailComposer } from "@ionic-native/email-composer";
 
 import { AuthProvider } from "../../providers/auth/auth";
 
@@ -33,18 +34,17 @@ export class Signup {
                                     this.menu.enable(false, 'menu')
   }
 
-  signup() {
-
+  signup(email: string, password: string, username: string) {
+      console.log('Signup details: ', email, password, username)
               let loading = this.load.create({
-                          content: 'Signing you up for the service'
+                  content: 'Signing you up for the service'
               });
               loading.present();
-              this.navCtrl.push(Portal);
-              this.auth.auth.createUserWithEmailAndPassword(this.email, this.password).then(() => {
-                  this.db.database.ref('Users/' + this.username).set({
-                        username: this.username,
-                        email: this.email,
-      
+              this.auth.auth.createUserWithEmailAndPassword(email, password).then(() => {
+                    alert('Username on signup: ' + username);
+                  this.db.database.ref('Users/' + username).set({
+                        username: username,
+                        email: email
                   }).then(() => {
                         console.log('User account successfully created');
                         let signup_success_toast = this.toast.create({
@@ -52,12 +52,34 @@ export class Signup {
                               position: 'bottom',
                               duration: 2000
                         });
+                        let verify_mail_toast = this.toast.create({
+                              message: 'A verification email has been sent. Please verify your email',
+                              position: 'bottom',
+                              duration: 5000
+                        });
                         signup_success_toast.present();
+                        //save user's username as displayName on firebase auth
+                        this.auth.auth.currentUser.displayName = username;
+                        //Navigate to Portal Page
                         this.navCtrl.push(Portal);
+                        //Dismiss loader
+                        loading.dismiss();
+                        //Verify email
+                        this.verify_email();
+                        //Present verify_email_toast
+                        verify_mail_toast.present();
                         // Store username
                         this.store.ready().then(() => {
-                              this.store.set('username', this.username);
-                        })
+                              this.store.set('username', username);
+                              this.store.set('current_user', this.auth.auth.currentUser.email);
+                        });
+
+                        //Store user email in emails db route
+                        // this.db.database.ref('Emails/' + email).set({
+                        //       username: username
+                        // }).then(() => {
+                        //       console.log('Username saved under Emails/');
+                        // })
                   }).catch(err => {
                         console.log('User account could not be created');
                         let signup_error_toast = this.toast.create({
@@ -67,12 +89,13 @@ export class Signup {
                         });
                         signup_error_toast.present();
                         this.navCtrl.push(Home);
-                  })
-            })
-            //  this.navCtrl.push('Portal')
-             setTimeout(() =>{
-                         loading.dismiss();
-             }, 5000)
+                        loading.dismiss();
+                  });
+            });
+  }
+
+  verify_email() {
+      this.auth.auth.currentUser.sendEmailVerification();
   }
 
   toLoginPage() {

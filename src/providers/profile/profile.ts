@@ -16,12 +16,13 @@ export class ProfileProvider {
     console.log('Hello ProfileProvider Provider');
   }
 
-  save(fullname: string, username: string, email: string, gender: string) {
+  save(fullname: string, username: string, email: string, gender: string, phone: any) {
       this.db.database.ref('Users/' + username).set({
             fullname: fullname,
             username: username,
             email: email,
-            gender: gender
+            gender: gender,
+            phone: phone
       }).then(() => {
             let success_toast = this.toast.create({
                   message: 'Saved',

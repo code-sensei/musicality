@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, AlertController, ToastController } from 'ionic-angular';
 
 import { SocialSharing } from "@ionic-native/social-sharing";
 
@@ -16,7 +16,7 @@ import { SocialSharing } from "@ionic-native/social-sharing";
 })
 export class Help {
 
-  constructor(public menu: MenuController, public alert: AlertController,  public navCtrl: NavController, public navParams: NavParams, public social: SocialSharing) {
+  constructor(public menu: MenuController, public alert: AlertController,  public navCtrl: NavController, public navParams: NavParams, public social: SocialSharing, private toast: ToastController) {
               this.menu.enable(true, 'menu')
   }
 
@@ -35,13 +35,11 @@ uiHelp() {
                   },
         {
           name: 'title',
-          placeholder: 'Title',
-          value: 'title'
+          placeholder: 'Title'
         },
         {
                     name: 'sitrep',
-                    placeholder: 'Situation',
-                    value: 'sitrep'
+                    placeholder: 'Situation'
         }
       ],
       buttons: [
@@ -60,14 +58,29 @@ uiHelp() {
             // Share via email
             this.social.shareViaEmail('From: ' + data.fullname + '\n ' + 'Title: ' + data.title + ' \n' + 'Situation: ' + data.sitrep , 'Musicality Help', ['jctrev01@gmail.com']).then(() => {
             // Success!
-            alert('Email sent')
-            }).catch(() => {
-            // Error!
-            alert('Failed to send email')
+            let success_toast = this.toast.create({
+                  message: 'Email sent',
+                  position: 'bottom',
+                  duration: 3000
             });
-            }).catch(() => {
+            success_toast.present();
+            }).catch((err) => {
+            // Error!
+            let err_toast = this.toast.create({
+                  message: 'Email could not be sent Error: \n\n \t' + err,
+                  position: 'bottom',
+                  duration: 3000
+            });
+            err_toast.present();
+            });
+            }).catch((err) => {
             // Sharing via email is not possible
-            alert('Cannot send email. Try again later')
+            let err_toast = this.toast.create({
+                  message: 'Email can not be sent Error: \n\n \t' + err,
+                  position: 'bottom',
+                  duration: 3000
+            });
+            err_toast.present();
             });
           }
         }

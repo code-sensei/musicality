@@ -9,7 +9,7 @@
     <ion-navbar color="theme_dark" class="nav" hideBackButton="false">
         <ion-title>Settings</ion-title>
         <ion-buttons end padding>
-            <button ion-button icon-only clear color="light" (click)="save(fullname,username,email,gender,remember)">
+            <button ion-button icon-only clear color="light" (click)="save(fullname,username,email,gender,phone_no)">
                   <ion-icon name="checkmark"></ion-icon>
             </button>
         </ion-buttons>
@@ -42,6 +42,10 @@
         <ion-item>
             <ion-label stacked>E-mail Address</ion-label>
             <ion-input type="text" [(ngModel)]="email"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Phone number</ion-label>
+            <ion-input type="tel" [(ngModel)]="phone_no"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label>Gender</ion-label>

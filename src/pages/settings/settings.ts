@@ -25,6 +25,7 @@ export class SettingsPage {
       username: string;
       email: string;
       gender: any;
+      phone_no: any;
 
   constructor(public menu: MenuController ,public navCtrl: NavController, public navParams: NavParams, public auth: AuthProvider, public profile: ProfileProvider, public db: AngularFireDatabase, public store: Storage) {
       this.menu.enable(true, 'menu');
@@ -40,6 +41,7 @@ export class SettingsPage {
                          this.email = val.email;
                          this.gender = val.gender;
                          this.fullname = val.fullname;
+                         this.phone_no = val.phone;
                   })
             })
       });
@@ -69,8 +71,8 @@ export class SettingsPage {
       //   }
   }
 
-  save(fullname: string, username: string, email: string, gender: string) {
-      this.profile.save(fullname, username, email, gender);
+  save(fullname: string, username: string, email: string, gender: string, phone: any) {
+      this.profile.save(fullname, username, email, gender, phone);
   }
 
   ionViewDidLoad() {

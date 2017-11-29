@@ -22,6 +22,8 @@ import { Help } from "../pages/help/help";
 import { PlayerPage } from "../pages/player/player";
 import { Profile } from "../pages/profile/profile";
 import { SettingsPage } from "../pages/settings/settings";
+import { AboutPage } from '../pages/about/about';
+import { VerifyPhonePage } from "../pages/verify-phone/verify-phone";
 
 
 import { SpotifyProvider } from '../providers/spotify/spotify';
@@ -31,6 +33,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthProvider } from '../providers/auth/auth';
 import { ProfileProvider } from "../providers/profile/profile";
 import { Home } from '../pages/home/home';
+import { EmailComposer } from "@ionic-native/email-composer";
 
 export const firebaseConfig = {
       apiKey: "AIzaSyCQtHDUaBj7YM7m8A7MWor7uZ46d2vaVQI",
@@ -52,7 +55,9 @@ export const firebaseConfig = {
     Help,
     PlayerPage,
     Profile,
-    SettingsPage
+    SettingsPage,
+    AboutPage,
+    VerifyPhonePage
   ],
   imports: [
     BrowserModule,
@@ -78,7 +83,9 @@ export const firebaseConfig = {
     Help,
     PlayerPage,
     Profile,
-    SettingsPage
+    SettingsPage,
+    AboutPage,
+    VerifyPhonePage
   ],
   providers: [
     StatusBar,
@@ -92,7 +99,8 @@ export const firebaseConfig = {
     InAppBrowser,
     AngularFireDatabase,
     {provide: ErrorHandler, useClass: IonicErrorHandler}, SpotifyProvider,
-    ProfileProvider
+    ProfileProvider,
+    EmailComposer
   ]
 })
 export class AppModule {}
