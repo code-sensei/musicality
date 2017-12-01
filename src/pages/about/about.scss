@@ -1,5 +1,6 @@
 page-about {
     .content {
+        text-align: center;
         .about {
             height: 100%;
             display: flex;
@@ -8,6 +9,9 @@ page-about {
             align-items: center;
             .about-text {
                 color: grey;
+            }
+            .about-link {
+                color: map-get($colors, primary);
             }
         }
     }

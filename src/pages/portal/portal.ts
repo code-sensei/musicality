@@ -139,7 +139,21 @@ openMenu() {
                                     alert(this.local_tracks)
                                     console.log('Local tracks imported: ' + this.local_tracks)
 
-                                    this.is_empty = false
+                                    this.is_empty = false;
+
+                                    this.mp.create(this.nativePath, (file) => {
+                                          this.current_track = file;
+
+                                          //change $is_empty to false
+                                          this.is_empty = false
+                                          
+                                          //save $local_tracks array to localdb
+                                          this.storage.ready().then(() => {
+                                                this.storage.set('selected_tracks', this.local_tracks);
+                                          }, err => {
+                                                alert('media player could not play file');
+                                          });
+                                    });
 
                                     // this.mp.create(this.nativePath).then((file) => {
                                     //             // console.error(file);
@@ -167,7 +181,7 @@ openMenu() {
                         }, (err) => {
                                     //AlertController alert
                                     alert('No FP plugin available')
-                        })
+                        });
                         
                         // resolveNativePath(uri, (result) => {
                         //             this.nativePath = result;

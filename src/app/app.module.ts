@@ -34,6 +34,7 @@ import { AuthProvider } from '../providers/auth/auth';
 import { ProfileProvider } from "../providers/profile/profile";
 import { Home } from '../pages/home/home';
 import { EmailComposer } from "@ionic-native/email-composer";
+import { SMS } from "@ionic-native/sms";
 
 export const firebaseConfig = {
       apiKey: "AIzaSyCQtHDUaBj7YM7m8A7MWor7uZ46d2vaVQI",
@@ -100,7 +101,8 @@ export const firebaseConfig = {
     AngularFireDatabase,
     {provide: ErrorHandler, useClass: IonicErrorHandler}, SpotifyProvider,
     ProfileProvider,
-    EmailComposer
+    EmailComposer, 
+    SMS
   ]
 })
 export class AppModule {}

@@ -3,6 +3,17 @@ page-home {
         //background-image: url('../../assets/home.jpg');
         background-image: url('../assets/bg.jpg');
         color: #eeeeee;
+        ion-slides {
+            .heading {
+                margin-top: 55%;
+            }
+            .help-text {
+                margin-top: 40%;
+            }
+        }
+        .swiper-pagination-bullet-active {
+            background: map-get($colors, #fff) !important;
+        }
         .action-btn {
             color: map-get($colors, primary);
         }

@@ -59,7 +59,7 @@ export class Signup {
                         });
                         signup_success_toast.present();
                         //save user's username as displayName on firebase auth
-                        this.auth.auth.currentUser.displayName = username;
+                        // this.auth.auth.currentUser.displayName = username;
                         //Navigate to Portal Page
                         this.navCtrl.push(Portal);
                         //Dismiss loader
@@ -80,17 +80,36 @@ export class Signup {
                         // }).then(() => {
                         //       console.log('Username saved under Emails/');
                         // })
+                  }, (err) => {
+                        this.navCtrl.push(Home);
+                        loading.dismiss();
+                        console.log('User account could not be created', err);
+                        let signup_error_toast = this.toast.create({
+                              message: '' + err.message,
+                              position: 'bottom',
+                              duration: 5000
+                        });
+                        signup_error_toast.present();
                   }).catch(err => {
-                        console.log('User account could not be created');
+                        this.navCtrl.push(Home);
+                        loading.dismiss();
+                        console.log('User account could not be created', err);
                         let signup_error_toast = this.toast.create({
                               message: 'Couldnt create account \n Error: ' + err,
                               position: 'bottom',
                               duration: 2000
                         });
                         signup_error_toast.present();
-                        this.navCtrl.push(Home);
-                        loading.dismiss();
                   });
+            }, (err) => {
+                  loading.dismiss();
+                  console.log('User account could not be created', err);
+                  let signup_error_toast = this.toast.create({
+                        message: '' + err.message,
+                        position: 'bottom',
+                        duration: 5000
+                  });
+                  signup_error_toast.present();
             });
   }
 

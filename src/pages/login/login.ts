@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, MenuController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, MenuController, ToastController, AlertController } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
 import { NativeStorage } from "@ionic-native/native-storage";
 
@@ -30,7 +30,7 @@ export class Login {
             password: string
             username: string
 
-  constructor(public menu: MenuController, public navCtrl: NavController, public navParams: NavParams, public store: Storage,  public storage: NativeStorage, public load: LoadingController, public auth: AngularFireAuth, public toast: ToastController, public db: AngularFireDatabase) {
+  constructor(public menu: MenuController, public navCtrl: NavController, public navParams: NavParams, public store: Storage,  public storage: NativeStorage, public load: LoadingController, public auth: AngularFireAuth, public toast: ToastController, public db: AngularFireDatabase, public alert: AlertController) {
              this.menu.enable(false, 'menu')
              
             //   //Get username from DB based on email entered
@@ -83,6 +83,37 @@ export class Login {
             setTimeout(() => {
                         loading.dismiss();
             }, 5000)
+  }
+
+  forgot_password() {
+      let popup = this.alert.create({
+            title: 'Forgot Password',
+            message: 'Enter the email connected to you account',
+            inputs: [
+                  {
+                        name: 'email',
+                        placeholder: 'Email address'
+                  }
+            ],
+            buttons: [
+                  {
+                        text: 'reset password',
+                        handler: (data) => {
+                              //describe toast
+                              let toast = this.toast.create({
+                                    message: 'Password reset email sent',
+                                    position: 'bottom',
+                                    duration: 3000
+                              });
+                              //Send password reset email
+                              this.auth.auth.sendPasswordResetEmail(data.email);
+                              //Present toast
+                              toast.present();
+                        }
+                  }
+            ]
+      });
+      popup.present();
   }
 
   toSignupPage() {

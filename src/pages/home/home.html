@@ -6,10 +6,13 @@
 -->
 
 <ion-content class="content">
-    <ion-slides pager color="light">
+    <ion-slides pager="false" parallax="true" effect="coverflow">
         <ion-slide>
             <h2 class="heading">Musicality</h2>
-            <p>The home for tracks</p>
+            <p>The home for tracks</p> <br />
+            <p class="help-text"> Swipe
+                <ion-icon name="arrow-round-forward"></ion-icon>
+            </p>
         </ion-slide>
         <ion-slide>
             <h2 class="heading">Step 1</h2>
@@ -20,18 +23,27 @@
                 <ion-col width-50>
                     <button ion-button round color="light" class="action-btn" (click)="toSignupPage()">Signup</button>
                 </ion-col>
-            </ion-row>
+            </ion-row> <br />
+            <p class="help-text"> Swipe
+                <ion-icon name="arrow-round-forward"></ion-icon>
+            </p>
         </ion-slide>
         <ion-slide>
             <h2 class="heading"> Step 2 </h2>
-            <p class="exp">Download your music</p>
+            <p class="exp">Download your music</p> <br />
+            <p class="help-text"> Swipe
+                <ion-icon name="arrow-round-forward"></ion-icon>
+            </p>
         </ion-slide>
         <ion-slide>
             <h2 class="heading"> Step 3 </h2>
-            <p class="exp">Play your music</p>
+            <p class="exp">Play your music</p> <br />
+            <p class="help-text"> Swipe
+                <ion-icon name="arrow-round-forward"></ion-icon>
+            </p>
         </ion-slide>
         <ion-slide>
-            <h2 class="heading"> Step 4 </h2>
+            <h2 class=""> Step 4 </h2>
             <p class="exp">Enjoy your chosen tracks</p>
             <button ion-button full-width round color="light" class="action-btn" style="padding: 15px;" (click)="toLoginPage()">Continue</button>
         </ion-slide>
